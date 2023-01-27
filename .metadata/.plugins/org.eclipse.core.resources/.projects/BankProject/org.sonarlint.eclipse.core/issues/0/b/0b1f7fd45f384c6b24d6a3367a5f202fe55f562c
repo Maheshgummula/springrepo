@@ -1,0 +1,26 @@
+
+–
+java:S11920"gDefine a constant instead of duplicating this literal "customerpages/CustomerRegistrationPage" 3 times.(Ã›’rHÇúRCRITICALZ
+CODE_SMELL
+~
+java:S1192."IDefine a constant instead of duplicating this literal "message" 10 times.(†ð¿ÕûÿÿÿÿHËúRCRITICALZ
+CODE_SMELL
+™
+java:S1192U"iDefine a constant instead of duplicating this literal "Your Entered Account Number is invalid :" 3 times.(®¶Ì›HÖúRCRITICALZ
+CODE_SMELL
+s
+java:S4684%"@Replace this persistent entity with a simple POJO or DTO object.(Í´ý®HÚúRCRITICALZVULNERABILITY
+x
+java:S4684?"@Replace this persistent entity with a simple POJO or DTO object.(ÀÒøíþÿÿÿÿHÛúRCRITICALZVULNERABILITY
+s
+java:S4684O"@Replace this persistent entity with a simple POJO or DTO object.(æÉçŠHÜúRCRITICALZVULNERABILITY
+x
+java:S4684\"@Replace this persistent entity with a simple POJO or DTO object.(ÓÞ¾ùüÿÿÿÿHÝúRCRITICALZVULNERABILITY
+|
+java:S4488["JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(±µþÈüÿÿÿÿHÞúRMINORZ
+CODE_SMELL
+r
+java:S4684o"@Replace this persistent entity with a simple POJO or DTO object.(ÚÝŠ'HàúRCRITICALZVULNERABILITY
+|
+java:S4488n"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(þâ¢øùÿÿÿÿHáúRMINORZ
+CODE_SMELL

@@ -1,0 +1,18 @@
+package com.demo.entity;
+
+import java.util.List;
+import java.util.Set;
+
+public class Student {
+	Integer id;
+	String name;
+	Address address;
+	List<Long> contacts;
+	Set<Integer> numbers;
+	public Student() {
+	}
+
+	
+	
+
+}

@@ -1,0 +1,19 @@
+package com.demo.dao;
+
+import org.springframework.jdbc.core.JdbcTemplate;
+
+import com.demo.entity.Employee;
+
+public class EmployeeDao {
+	private JdbcTemplate template;
+
+	public void setTemplate(JdbcTemplate template) {
+		this.template = template;
+	}
+
+	
+	public int saveEmployee(Employee employee) {
+		String query="insert into employee values("+employee.getId()+","+employee.getName()+","+employee.getAddress()+")";
+		return template.update(query);
+	}
+}

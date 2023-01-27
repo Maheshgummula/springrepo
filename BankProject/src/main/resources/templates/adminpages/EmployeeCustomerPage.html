@@ -1,0 +1,78 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Show Employee and Customer Details</title>
+</head>
+<body>
+<h3>Show Employee and Customer Details</h3>
+<form action="/getemployeecustomerdetails" method="get">
+<pre>
+    <input type="submit" value="Show Employee and Customer Details "/>
+</pre>
+</form>
+<hr/>
+<h3 align="center">Customer Details</h3>
+<table border="1" align="center">
+<!--<caption>customer Details</caption>-->
+<thead>
+<tr>
+<th>Customer Id</th>
+<th>Account Number</th>
+<th>Customer Name</th>
+<th>Email ID</th>
+<th>Contact Number</th>
+<th>Address</th>
+<th>Balance</th>
+</tr>
+</thead>
+<tbody >
+<tr th:each="customer:${customerdetails}" align="center" >
+<td th:text="${customer.cid}"></td>
+<td th:text="${customer.accountnumber}"></td>
+<td th:text="${customer.name}"></td>
+<td th:text="${customer.email}"></td>
+<td th:text="${customer.contact}"></td>
+<td th:text="${customer.address}"></td>
+<td th:text="${customer.balance}"></td>
+</tr>
+</tbody>
+</table>
+
+<h3 align="center">Employee Details</h3>
+<table border="1" align="center">
+<!--<caption>customer Details</caption>-->
+<thead>
+<tr>
+<th>Employee Id</th>
+<th>Employee Name</th>
+<th>Email ID</th>
+</tr>
+</thead>
+<tbody>
+<tr th:each="employee:${employeedetails}" align="center">
+<td th:text="${employee.id}"></td>
+<td th:text="${employee.name}"></td>
+<td th:text="${employee.email}"></td>
+</tr>
+</tbody>
+</table>
+
+<!--<button onclick="myfunction1()">Employee Registration</button>
+<script>function myfunction1(){
+	location.replace("admin/registeremp")
+}
+</script>
+<button onclick="myfunction2()">Remove Employee</button>
+<script>function myfunction2(){
+	location.replace("admin/deleteemppage")
+}
+</script>-->
+<button onclick="myfunction3()">Home Page</button>
+<script>function myfunction3(){
+	location.replace("/admin")
+}
+</script>
+
+<a th:href="@{/logout}">Logout</a>
+</body>
+</html>

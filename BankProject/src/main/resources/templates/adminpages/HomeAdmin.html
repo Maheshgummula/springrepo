@@ -1,0 +1,28 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Home Page For Admin</title>
+</head>
+<body>
+<h3>Home Page For Admin</h3>
+
+
+<button onclick="myfunction1()">Employee Registration</button>
+<script>function myfunction1(){
+	location.replace("admin/registeremp")
+}
+</script>
+<button onclick="myfunction2()">Remove Employee</button>
+<script>function myfunction2(){
+	location.replace("admin/deleteemppage")
+}
+</script>
+<button onclick="myfunction3()">Customer And Employee Details</button>
+<script>function myfunction3(){
+	location.replace("admin/empcustpage")
+}
+</script>
+<div th:text="${message}"></div>
+<a th:href="@{/logout}">Logout</a>
+</body>
+</html>

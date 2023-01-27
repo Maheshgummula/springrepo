@@ -1,0 +1,66 @@
+package com.bitlyexample.filter;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Enumeration;
+import java.util.List;
+
+import javax.servlet.FilterChain;
+import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
+import javax.servlet.http.HttpFilter;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletRequestWrapper;
+import javax.servlet.http.HttpServletResponse;
+import javax.ws.rs.client.ClientRequestContext;
+import javax.ws.rs.client.ClientRequestFilter;
+import javax.ws.rs.ext.Provider;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.web.filter.GenericFilterBean;
+
+import com.bitlyexample.configuration.MutableHttpServletRequest;
+import com.bitlyexample.service.EncryptDecryptServiceImpl;
+@Component
+public class BitlyFilter extends HttpFilter {
+@Autowired
+EncryptDecryptServiceImpl impl;
+	
+@Override
+protected void doFilter(HttpServletRequest request, HttpServletResponse response, FilterChain chain)
+		throws IOException, ServletException {
+	// TODO Auto-generated method stub
+	
+	List list=new ArrayList<>();
+	list.add("/encrypt");
+	list.add("/decrypt");
+//	list.add("/shortingUrl");
+	if (list.contains(request.getRequestURI())) {
+		chain.doFilter(request, response );
+	}
+	else {
+		decryptingRequest(request, response, chain);
+	}
+}
+
+private void decryptingRequest(HttpServletRequest request,HttpServletResponse response, FilterChain chain) {
+
+	MutableHttpServletRequest servletRequest=new MutableHttpServletRequest(request);
+	
+	String originalToken=impl.decryptMessage(request.getHeader("Authorization"));
+	System.out.println("111111111111111111111111111");
+	servletRequest.putHeader("Authorization",originalToken);
+	System.out.println("2222222222222222222222"+originalToken);
+	try {
+		chain.doFilter(servletRequest, response );
+	} catch (IOException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	} catch (ServletException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+}
+	}

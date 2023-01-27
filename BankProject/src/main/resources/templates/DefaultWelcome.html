@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<h3> Welcome TO The Bank</h3>
+
+<a th:href="@{/customer}" >Customer Login</a><br/>
+<a th:href="@{/register}" >Customer Registration</a><br/>
+<a th:href="@{/emp}" >Employee Login</a><br/>
+<a th:href="@{/admin}" >Admin Login</a><br/>
+
+
+
+<a th:href="@{/verifying}" >Verify </a><br/>
+<div th:text="${Message}" > </div><br/>
+</body>
+</html>

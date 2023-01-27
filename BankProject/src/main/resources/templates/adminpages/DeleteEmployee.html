@@ -1,0 +1,35 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Delete Employee</title>
+</head>
+<body>
+<h3>Delete Employee</h3>
+<form action="/deleteemp" method="post">
+<pre>
+Employee email :    <input type="email" name="email" />
+    <input type="submit" value="Delete Customer"/>
+     <input type="reset" value="Clear"/>
+     <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+</pre>
+</form>
+
+<!--<button onclick="myfunction1()">Employee Registration</button>
+<script>function myfunction1(){
+	location.replace("admin/registeremp")
+}
+</script>-->
+<button onclick="myfunction2()">Home Page</button>
+<script>function myfunction2(){
+	location.replace("/admin")
+}
+</script>
+<!--<button onclick="myfunction3()">Customer And Employee Details</button>
+<script>function myfunction3(){
+	location.replace("admin/empcustpage")
+}
+</script>-->
+<div th:text="${message}"></div>
+<a th:href="@{/logout}">Logout</a>
+</body>
+</html>

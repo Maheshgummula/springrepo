@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<h3> This is Index Page</h3>
+
+<form action="/upload" method="post" enctype="multipart/form-data">
+<pre>
+Select Image :    <input type="file" name="image" accept="image/*"/>
+
+    <input type="submit" value="Upload Image"/>  <input type="reset" value="Clear"/>
+</pre>
+</form>
+
+<!--<a th:href="@{/verifying}" >Verify </a><br/>-->
+<div th:text="${Message}" > </div><br/>
+
+
+</body>
+</html>

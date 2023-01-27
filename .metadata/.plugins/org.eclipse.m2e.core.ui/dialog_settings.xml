@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.m2e.core.pom.overview">
+		<list key="ciManagementUrl">
+		</list>
+		<list key="ciManagementSystem">
+		</list>
+		<list key="issueManagementSystem">
+		</list>
+		<list key="issueManagementUrl">
+		</list>
+	</section>
+	<section name="org.eclipse.m2e.core.pom.dependencies">
+	</section>
+	<section name="MavenProjectImportWizardPage">
+		<list key="rootDirectory">
+			<item value="C:\Users\Mahesh.Gummula\Downloads\simple-java-bitly-master"/>
+			<item value="C:\Users\Mahesh.Gummula\Downloads\URLShortingPOC\URLShortingPOC"/>
+			<item value="C:\Users\Mahesh.Gummula\Downloads\CollectionRestTemplate\CollectionRestTemplate"/>
+			<item value="C:\Users\Mahesh.Gummula\Downloads\JWT___Security__mysql_withrole\JWT___Security__mysql_withrole"/>
+			<item value="D:\BuyKartHome"/>
+			<item value="C:\Users\Mahesh.Gummula\spring-workspace\BuyKartHome"/>
+			<item value="C:\Users\Mahesh.Gummula\Downloads\spring-boot-websocket-chat-application\spring-boot-websocket-chat-application"/>
+			<item value="C:\Users\Mahesh.Gummula\Downloads\final project\final project"/>
+			<item value="C:\Users\Mahesh.Gummula\Downloads\demo (1)\demo"/>
+			<item value="C:\Users\Mahesh.Gummula\Downloads\demo\demo"/>
+			<item value="C:\Users\Mahesh.Gummula\Downloads\spring-boot-jpa-example\spring-boot-jpa-example"/>
+			<item value="C:\Users\Mahesh.Gummula\Downloads\Deamon\Deamon"/>
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+	</section>
+</section>

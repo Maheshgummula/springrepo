@@ -1,0 +1,22 @@
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Voting Page</title>
+  </head>
+  <body>
+<form action="vote" method="post">
+
+<div th:each="Candidate: ${CandidatesList}">
+<input type="radio" name="candidateName" th:value="${Candidate.candidateName}" th:text= "${Candidate.candidateName}">
+</div>
+<input type="submit"/>
+</form>
+
+<!--<div th:each="Candidate: ${CandidatesList}">
+<input type="radio" name="candidateName"><h5 th:text="${Candidate.candidateName}" />
+</div>-->
+<form th:action="@{/logout}" method="post">
+    <input type="submit" value="Logout" />
+</form>
+<div th:text="${Message}"></div>
+  </body>
+</html>

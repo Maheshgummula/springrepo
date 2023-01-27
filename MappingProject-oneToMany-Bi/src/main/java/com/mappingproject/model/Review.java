@@ -1,0 +1,14 @@
+package com.mappingproject.model;
+
+import javax.persistence.Entity;
+
+import lombok.Data;
+
+@Entity
+@Data
+public class Review {
+
+	private Long id;
+	private String comment;
+	
+}

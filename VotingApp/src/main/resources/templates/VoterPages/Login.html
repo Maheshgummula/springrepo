@@ -1,0 +1,21 @@
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Login Page</title>
+  </head>
+  <body>
+<form th:action="@{/login}" method="post">
+<div th:if="${param.error}" class="alert alert-error">Invalid username or Password</div>
+<div th:if="${param.logout}" class="alert alert-success">You have been logged out</div>
+<table>
+        <tr><td>Enter Username(<small>Email ID</small>):</td><td><input type="email" name="email" placeholder="Enter Your Email Id"></td></tr>
+        <tr><td>Enter Password:</td><td><input type="password" name="password" placeholder="Enter Your password"></td></tr>
+        <tr><td><input type="submit" value="Login"></td><td><a href="/register"><button type="button">Register</button></a></td></tr>
+        <input type="hidden"                          
+        name="${_csrf.parameterName}"  
+        value="${_csrf.token}"/>  
+</table>
+</form>
+
+<div th:text="${Message}"></div>
+  </body>
+</html>

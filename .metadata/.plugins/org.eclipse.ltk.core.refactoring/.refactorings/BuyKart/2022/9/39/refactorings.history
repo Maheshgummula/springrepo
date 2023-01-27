@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;ServletInitializer.java&apos; to &apos;NSDL/src/main/java/com.nsdl&apos;&#x0D;&#x0A;- Original project: &apos;BuyKart&apos;&#x0D;&#x0A;- Destination element: &apos;NSDL/src/main/java/com.nsdl&apos;&#x0D;&#x0A;- Original element: &apos;com.buykart.ServletInitializer.java&apos;" description="Copy compilation unit" destination="=NSDL/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.nsdl" element1="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.buykart{ServletInitializer.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1663931813696" units="1" version="1.0"/>
+</session>

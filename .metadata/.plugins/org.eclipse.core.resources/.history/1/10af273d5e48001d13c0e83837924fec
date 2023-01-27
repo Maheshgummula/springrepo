@@ -1,0 +1,148 @@
+package com.consumingapi.filter;
+
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+
+import javax.servlet.Filter;
+import javax.servlet.FilterChain;
+import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
+import javax.servlet.ServletResponseWrapper;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.web.util.ContentCachingRequestWrapper;
+import org.springframework.web.util.ContentCachingResponseWrapper;
+
+import com.consumingapi.service.EncryptDecryptServiceImpl;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ObjectNode;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+@Component
+public class CustomFilter implements Filter{
+	Logger logger=LoggerFactory.getLogger(CustomFilter.class);
+	
+	@Autowired
+	EncryptDecryptServiceImpl serviceImpl;
+	
+	
+	@Override
+	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
+			throws IOException, ServletException {	
+	JsonParser parser=new JsonParser();
+
+	
+	if (((HttpServletRequest) request).getRequestURI().equals("/encrypt") || ((HttpServletRequest) request).getRequestURI().equals("/decrypt")) {
+		chain.doFilter(request, response);
+	}
+	else
+	{
+	
+		
+		
+		ReaderClass readerClass=new ReaderClass((HttpServletRequest) request);
+		JsonObject object=(JsonObject) parser.parse(readerClass.getBody());
+//		System.out.println(object.get("key")+"$$$$$$$$$$$$$$$$");
+		String keys=object.get("key").getAsString();
+		String entity= serviceImpl.decryptMessage(keys);
+//		System.out.println(entity);
+		JsonObject mydata=(JsonObject) parser.parse(entity);
+//		System.out.println(mydata.get("data"));
+		
+readerClass.resetInputStream(mydata.toString().getBytes());
+
+
+
+
+CustomResponseWrapper responseWrapper=new CustomResponseWrapper((HttpServletResponse) response);
+//byte[] data=responseWrapper.getCaptureAsBytes();
+//String myddata=performYourOwnBusinessLogicIntoThisMethod(data);
+//System.out.println(data);
+
+//It is inbuit-class
+//ContentCachingResponseWrapper responseWrapper=new ContentCachingResponseWrapper((HttpServletResponse) response);
+
+
+		logger.info("Before Filter");
+		chain.doFilter(readerClass, responseWrapper);
+		logger.info("After Filter");
+
+		try {
+			 final byte[] originalData = responseWrapper.getCaptureAsBytes();
+			 String data=new String(originalData,responseWrapper.getCharacterEncoding());
+			 System.out.println(" Our data "+data);
+	            final int originalLength = responseWrapper.getContentSize();
+//	            final String newData = performYourOwnBusinessLogicIntoThisMethod( originalData );
+	        String encrypted=serviceImpl.encryptRequest(data);
+//	        JsonObject responseObj=(JsonObject) parser.parse(encrypted);
+	        System.out.println("Respose ka Encrypted Data"+encrypted);
+	            final long newLength = encrypted.length();
+//	            
+	            response.setContentLength(encrypted.length());
+//	            response.getOutputStream().write(encrypted);
+	            response.getWriter().write(encrypted);
+////	            responseWrapper.getOutputStream().write(encrypted.getBytes());
+////	            responseWrapper.getWriter().flush();
+//	            responseWrapper.flushBuffer();
+//	            
+//	            response.setContentLength(responseWrapper.getContentSize());
+//	            response.getOutputStream().write(responseWrapper.getContentAsByteArray());
+//	            response.flushBuffer();
+
+	            // Commit the written data
+//	            responseWrapper.setResponse(wrapper);
+//	            responseWrapper.getWriter().flush();
+//	            responseWrapper.flushBuffer();
+//	       	 responseWrapper.copyBodyToResponse();
+		
+//			wrapper.getResponse().resetBuffer();
+//			wrapper.getResponse().getOutputStream().write(encrypted.getBytes());
+			
+			
+		} catch (Exception e) {
+//			// TODO: handle exception
+//			 response.setContentLength(responseWrapper.getContentSize());
+//	            response.getOutputStream().write(responseWrapper.getContentAsByteArray());
+//	            response.flushBuffer();
+			e.printStackTrace();
+		}
+		
+	}
+		
+
+//		JsonParser parser=new JsonParser();
+//		JsonObject object=(JsonObject) parser.parse(readerClass.getBody());
+//		object.get("key");
+//		String key=object.get("key").getAsString();
+//		System.out.println(object.get("key")+"$$$$$$$$$$$$$$$$");
+//		String entity=impl.decryptMessage(key);
+//	 System.out.println(entity);
+	
+	}
+
+
+
+	
+//	public String performYourOwnBusinessLogicIntoThisMethod(byte[] jsonInput) throws IOException {
+//
+//        final ObjectMapper mapper = new ObjectMapper();
+//        final ObjectNode root = (ObjectNode) mapper.readTree(jsonInput);
+//
+//        //update the json root
+//        //...
+//
+//        return root.toString();
+//    }    
+	
+
+
+
+
+
+	}

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+  <bean id="addressBean1" class="com.practice.entity.Address">
+  <!-- <property name="city" value="virar"></property> this is for setters to set the value to the bean
+  <property name="state" value="Maharashtra"></property> -->
+  <constructor-arg value="Bandra"></constructor-arg><!-- this is for constructor injection but remember to declare default constructor in bean  -->
+  <constructor-arg value="Mumbai"></constructor-arg>
+</bean>
+  <bean id="addressBean2" class="com.practice.entity.Address">
+    <!-- <constructor-arg value="Bandra"></constructor-arg>this is for constructor injection but remember to declare default constructor in bean 
+  <constructor-arg value="Mumbai"></constructor-arg> -->
+   <property name="city" value="virar"></property> <!-- this is for setters to set the value to the bean -->
+  <property name="state" value="Maharashtra"></property> 
+ 
+</bean>
+<bean id="studentBean" class="com.practice.entity.Student">
+<property name="id" value="23"></property>
+<property name="name" value="Mahesh"></property>
+<property name="addresses">
+<list>
+<ref bean="addressBean1"/>
+<ref bean="addressBean2"/>
+</list>
+</property>
+
+</bean>
+
+</beans>

@@ -1,0 +1,37 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Total Bank Balance</title>
+</head>
+<body>
+
+<h3>Total Bank Balance</h3>
+
+<form action="/gettotal" method="get">
+<pre>
+
+    <input type="submit" value="Click Here!"/>
+</pre>
+</form>
+
+<button onclick="myfunction1()">Home Page</button>
+<script>function myfunction1(){
+	location.replace("/emp")
+}
+</script>
+<!--<button onclick="myfunction2()">Customer Details</button>
+<script>function myfunction2(){
+	location.replace("emp/paginationpage")
+}
+</script>
+<button onclick="myfunction3()">Remove customer</button>
+<script>function myfunction3(){
+	location.replace("emp/delete")
+}
+</script>-->
+
+<div th:text="${message}"></div>
+<a th:href="@{/logout}">Logout</a>
+
+</body>
+</html>

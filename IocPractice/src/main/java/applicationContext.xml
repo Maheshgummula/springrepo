@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+        <bean id="addressob" class="com.demo.entity.Address">
+        <constructor-arg value="Virar"></constructor-arg>
+        <constructor-arg value="Maharashtra"></constructor-arg>
+        <constructor-arg value="India"></constructor-arg>
+        </bean>
+        <bean id="studentob" class="com.demo.entity.Student">
+        <constructor-arg value="90"></constructor-arg>
+        <constructor-arg value="Mahesh"></constructor-arg>
+        <constructor-arg ref="addressob"></constructor-arg>
+        <constructor-arg >
+        <list>
+        <value>909090</value>
+        <value>94560</value>
+        <value>4567</value>
+        <value>98765</value>
+        </list>
+        </constructor-arg>
+        <constructor-arg>
+        <set>
+        <value>123</value>
+        <value>456</value>
+        <value>789</value>
+        </set>
+        </constructor-arg>
+        <constructor-arg>
+        <map>
+        <entry key="one" value="1"></entry>
+        <entry key="two" value="2"></entry>
+        <entry key="three" value="3"></entry>
+        </map>
+        </constructor-arg>
+        </bean>
+        
+        <bean id="human1" class="com.demo.entity.Human"></bean>
+        <bean id="anything" class="com.demo.entity.Anything" autowire="byType"></bean>
+        
+        </beans>
+        

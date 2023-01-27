@@ -1,0 +1,52 @@
+package com.demo.entity;
+
+import java.util.List;
+import java.util.Set;
+
+public class Student {
+	Integer id;
+	String name;
+	Address address;
+	List<Long> contacts;
+	Set<Integer> numbers;
+	public Student() {
+	}
+	public Student(Integer id, String name, Address address, List<Long> contacts) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.address = address;
+		this.contacts = contacts;
+	}
+	public Integer getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public Address getAddress() {
+		return address;
+	}
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+	public List<Long> getContacts() {
+		return contacts;
+	}
+	public void setContacts(List<Long> contacts) {
+		this.contacts = contacts;
+	}
+	@Override
+	public String toString() {
+		return "Student [id=" + id + ", name=" + name + ", address=" + address + ", contacts=" + contacts + "]";
+	}
+	
+	
+
+}

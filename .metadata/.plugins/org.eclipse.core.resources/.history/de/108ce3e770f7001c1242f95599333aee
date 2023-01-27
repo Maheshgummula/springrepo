@@ -1,0 +1,22 @@
+package com.demo;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import com.demo.dao.EmployeeDao;
+import com.demo.entity.Employee;
+
+//@SpringBootApplication
+public class SpringJdbcApplication {
+
+	public static void main(String[] args) {
+//		SpringApplication.run(SpringJdbcApplication.class, args);
+		ApplicationContext context=new ClassPathXmlApplicationContext("applicationContext.xml");
+		EmployeeDao dao=context.getBean("empdao", EmployeeDao.class);
+		int status=dao.saveEmployee(new Employee(90, "Mahesh", "Virar"));
+		System.out.println(status);
+	}
+
+}

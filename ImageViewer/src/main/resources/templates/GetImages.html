@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<h3> Get Image By Name</h3>
+
+<form action="/getImage" method="get" >
+<pre>
+Enter Image Id:    <input type="text" name="id" />
+
+    <input type="submit" value="Get Image"/>  <input type="reset" value="Clear"/>
+</pre>
+</form>
+
+
+<div><img th:src="${Image}"></img></div>
+
+</body>
+</html>

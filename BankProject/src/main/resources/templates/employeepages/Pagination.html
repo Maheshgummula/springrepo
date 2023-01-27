@@ -1,0 +1,62 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Pagination For Customer Details</title>
+</head>
+<body>
+<h3 align="center">Pagination For Customer Details</h3>
+
+<h3 align="center">Customer Details</h3>
+<table border="1" align="center">
+<!--<caption>customer Details</caption>-->
+<thead>
+<tr>
+<th>Customer Id</th>
+<th>Account Number</th>
+<th>Customer Name</th>
+<th>Email ID</th>
+<th>Contact Number</th>
+<th>Address</th>
+<th>Balance</th>
+</tr>
+</thead>
+<tbody >
+<tr th:each="customer:${paging}" align="center" >
+<td th:text="${customer.cid}"></td>
+<td th:text="${customer.accountnumber}"></td>
+<td th:text="${customer.name}"></td>
+<td th:text="${customer.email}"></td>
+<td th:text="${customer.contact}"></td>
+<td th:text="${customer.address}"></td>
+<td th:text="${customer.balance}"></td>
+</tr>
+</tbody>
+</table>
+<div th:if ="${totalpage>1}" align="center">
+<div> Total Rows : [[${totalitems}]]</div>
+<div>
+<span th:each="i: ${#numbers.sequence(1,totalpage)}">
+<a th:if ="${currentPage !=i}" th:href="@{'/pagination/'+${i}}">[[${i}]]</a>
+<span th:unless="${currentPage!=i}">[[${i}]]</span>
+</span>
+</div>
+</div>
+
+<!--<button onclick="myfunction1()">Total Bank Balance</button>
+<script>function myfunction1(){
+	location.replace("emp/gettotalpage")
+}
+</script>-->
+<button onclick="myfunction2()">Home Page</button>
+<script>function myfunction2(){
+	location.replace("/emp")
+}
+</script>
+<!--<button onclick="myfunction3()">Remove customer</button>
+<script>function myfunction3(){
+	location.replace("emp/delete")
+}
+</script>-->
+<a th:href="@{/logout}">Logout</a>
+</body>
+</html>

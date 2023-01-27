@@ -1,0 +1,15 @@
+
+
+java:S1192)"`Define a constant instead of duplicating this literal "adminpages/EmployeeRegistration" 3 times.(¹é†WHãúRCRITICALZ
+CODE_SMELL
+}
+java:S1192("HDefine a constant instead of duplicating this literal "message" 5 times.(‰—ÈğúÿÿÿÿHçúRCRITICALZ
+CODE_SMELL
+x
+java:S4684 "@Replace this persistent entity with a simple POJO or DTO object.(‘ì®ÅùÿÿÿÿHíúRCRITICALZVULNERABILITY
+x
+java:S46842"@Replace this persistent entity with a simple POJO or DTO object.(ùºÂõúÿÿÿÿHîúRCRITICALZVULNERABILITY
+x
+java:S4684C"@Replace this persistent entity with a simple POJO or DTO object.(¹ÁòæüÿÿÿÿHïúRCRITICALZVULNERABILITY
+j	java:S106E"9Replace this use of System.out or System.err by a logger.(Ó›¬œøÿÿÿÿHğúRMAJORZ
+CODE_SMELL

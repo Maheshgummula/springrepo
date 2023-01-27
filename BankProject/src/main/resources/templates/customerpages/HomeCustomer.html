@@ -1,0 +1,31 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Home Page</title>
+</head>
+<body>
+<h3>Home Page</h3>
+
+
+<button onclick="myfunction1()">Show Account Balance</button>
+<script>function myfunction1(){
+	location.replace("customer/getbalancepage")
+}
+</script>
+<button onclick="myfunction2()">Deposit Amount</button>
+<script>function myfunction2(){
+	location.replace("customer/getdepositpage")
+}
+</script>
+<button onclick="myfunction3()">Withdraw Amount</button>
+<script>function myfunction3(){
+	location.replace("customer/getwithdrawpage")
+}
+</script>
+<div th:text="${message}"></div>
+
+<form th:action="@{/logout}" method="post">
+    <input type="submit" value="Logout" />
+</form>
+</body>
+</html>

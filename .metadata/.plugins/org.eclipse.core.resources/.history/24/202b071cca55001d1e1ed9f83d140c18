@@ -1,0 +1,5 @@
+package com.mappingproject.model;
+
+public class Student {
+
+}

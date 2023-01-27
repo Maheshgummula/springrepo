@@ -1,0 +1,36 @@
+package com.demo.dao;
+
+import java.util.List;
+
+import org.springframework.jdbc.core.JdbcTemplate;
+
+import com.demo.entity.Employee;
+
+public class EmployeeDao {
+	private JdbcTemplate template;
+
+	public void setTemplate(JdbcTemplate template) {
+		this.template = template;
+	}
+
+	
+	public int saveEmployee(Employee employee) {
+		String query="insert into employee values('"+employee.getId()+"','"+employee.getName()+"','"+employee.getAddress()+"')";
+//		String a="insert into employee values('"+e.getId()+"','"+e.getName()+"','"+e.getSalary()+"')";  
+		return template.update(query);
+	}
+	
+	public int updateEmployee(Employee employee) {
+		String query="update employee set name='"+employee.getName()+"',address='"+employee.getAddress()+"'where id='"+employee.getId()+"'";
+	return template.update(query);
+	}
+	
+	public int deleteEmployee(Employee employee) {
+		String query="delete from employee where id='"+employee.getId()+"'";
+		return template.update(query);
+	}
+	public List<Employee> showAll() {
+		String query="select * from employee";
+		return template.queryForList(query, Employee.class);
+	}
+}

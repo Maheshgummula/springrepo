@@ -1,0 +1,42 @@
+package com.creditcard.model;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+@Entity
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Table( name = "credit_cards_db")
+public class CreditCard {
+	@Id
+	@Column(name = "MASTER_PINCODES_NAME")
+	@JsonProperty("Pincode")
+private Integer masterPincodesName;
+	@Column(name = "EXTERNAL_CODE")
+private Integer externalCode;
+	
+	@Column(name = "CITY")
+private String city;
+	@Column(name = "COUNTRY")
+private String country;
+	@Column(name = "STATE")
+private String state;
+	@Column(name = "ETB_URBAN")
+private String etbUrban;
+	@Column(name = "NTB_URBAN")
+private String ntbUrban;
+	@Column(name = "RURAL")
+private String rural;
+	@Column(name = "ACTIVE")
+private Integer active;
+	
+	
+}
